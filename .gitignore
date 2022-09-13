@@ -8,6 +8,7 @@
 # Testing
 *.test
 *.tmp
+junit.xml
 
 # IDEs
 .idea/
