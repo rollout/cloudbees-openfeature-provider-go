@@ -78,6 +78,9 @@ func TestProvider_BooleanEvaluation(t *testing.T) {
 			},
 			want: openfeature.BoolResolutionDetail{
 				Value: true,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: true,
+				},
 			},
 		},
 		{
@@ -88,6 +91,9 @@ func TestProvider_BooleanEvaluation(t *testing.T) {
 			},
 			want: openfeature.BoolResolutionDetail{
 				Value: false,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: false,
+				},
 			},
 		},
 		{
@@ -98,6 +104,9 @@ func TestProvider_BooleanEvaluation(t *testing.T) {
 			},
 			want: openfeature.BoolResolutionDetail{
 				Value: false,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: false,
+				},
 			},
 		},
 		{
@@ -108,6 +117,9 @@ func TestProvider_BooleanEvaluation(t *testing.T) {
 			},
 			want: openfeature.BoolResolutionDetail{
 				Value: true,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: true,
+				},
 			},
 		},
 		{
@@ -119,6 +131,9 @@ func TestProvider_BooleanEvaluation(t *testing.T) {
 			},
 			want: openfeature.BoolResolutionDetail{
 				Value: true,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: true,
+				},
 			},
 		},
 		{
@@ -130,6 +145,9 @@ func TestProvider_BooleanEvaluation(t *testing.T) {
 			},
 			want: openfeature.BoolResolutionDetail{
 				Value: false,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: false,
+				},
 			},
 		},
 	}
@@ -165,6 +183,9 @@ func TestProvider_StringEvaluation(t *testing.T) {
 			},
 			want: openfeature.StringResolutionDetail{
 				Value: "yes",
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: "yes",
+				},
 			},
 		},
 		{
@@ -175,6 +196,9 @@ func TestProvider_StringEvaluation(t *testing.T) {
 			},
 			want: openfeature.StringResolutionDetail{
 				Value: "no",
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: "no",
+				},
 			},
 		},
 		{
@@ -185,6 +209,9 @@ func TestProvider_StringEvaluation(t *testing.T) {
 			},
 			want: openfeature.StringResolutionDetail{
 				Value: "banana",
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: "banana",
+				},
 			},
 		},
 		{
@@ -196,6 +223,9 @@ func TestProvider_StringEvaluation(t *testing.T) {
 			},
 			want: openfeature.StringResolutionDetail{
 				Value: "yes",
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: "yes",
+				},
 			},
 		},
 		{
@@ -207,6 +237,9 @@ func TestProvider_StringEvaluation(t *testing.T) {
 			},
 			want: openfeature.StringResolutionDetail{
 				Value: "no",
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: "no",
+				},
 			},
 		},
 		{
@@ -218,6 +251,9 @@ func TestProvider_StringEvaluation(t *testing.T) {
 			},
 			want: openfeature.StringResolutionDetail{
 				Value: "not specified",
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: "not specified",
+				},
 			},
 		},
 		{
@@ -229,6 +265,9 @@ func TestProvider_StringEvaluation(t *testing.T) {
 			},
 			want: openfeature.StringResolutionDetail{
 				Value: "not specified",
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: "not specified",
+				},
 			},
 		},
 		{
@@ -240,6 +279,9 @@ func TestProvider_StringEvaluation(t *testing.T) {
 			},
 			want: openfeature.StringResolutionDetail{
 				Value: "not specified",
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: "not specified",
+				},
 			},
 		},
 		{
@@ -250,6 +292,9 @@ func TestProvider_StringEvaluation(t *testing.T) {
 			},
 			want: openfeature.StringResolutionDetail{
 				Value: "not specified",
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: "not specified",
+				},
 			},
 		},
 	}
@@ -285,6 +330,9 @@ func TestProvider_FloatEvaluation(t *testing.T) {
 			},
 			want: openfeature.FloatResolutionDetail{
 				Value: 5.0,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: 5.0,
+				},
 			},
 		},
 		{
@@ -295,6 +343,9 @@ func TestProvider_FloatEvaluation(t *testing.T) {
 			},
 			want: openfeature.FloatResolutionDetail{
 				Value: 7.0,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: 7.0,
+				},
 			},
 		},
 		{
@@ -306,6 +357,9 @@ func TestProvider_FloatEvaluation(t *testing.T) {
 			},
 			want: openfeature.FloatResolutionDetail{
 				Value: 1.0,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: 1.0,
+				},
 			},
 		},
 		{
@@ -317,6 +371,9 @@ func TestProvider_FloatEvaluation(t *testing.T) {
 			},
 			want: openfeature.FloatResolutionDetail{
 				Value: 5.0,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: 5.0,
+				},
 			},
 		},
 		{
@@ -328,6 +385,9 @@ func TestProvider_FloatEvaluation(t *testing.T) {
 			},
 			want: openfeature.FloatResolutionDetail{
 				Value: 10.0,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: 10.0,
+				},
 			},
 		},
 		{
@@ -339,6 +399,9 @@ func TestProvider_FloatEvaluation(t *testing.T) {
 			},
 			want: openfeature.FloatResolutionDetail{
 				Value: 10.0,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: 10.0,
+				},
 			},
 		},
 		{
@@ -349,6 +412,9 @@ func TestProvider_FloatEvaluation(t *testing.T) {
 			},
 			want: openfeature.FloatResolutionDetail{
 				Value: 10.0,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: 10.0,
+				},
 			},
 		},
 	}
@@ -384,6 +450,9 @@ func TestProvider_IntEvaluation(t *testing.T) {
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: 5,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(5),
+				},
 			},
 		},
 		{
@@ -394,6 +463,9 @@ func TestProvider_IntEvaluation(t *testing.T) {
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: 7,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(7),
+				},
 			},
 		},
 		{
@@ -405,6 +477,9 @@ func TestProvider_IntEvaluation(t *testing.T) {
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: 1,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(1),
+				},
 			},
 		},
 		{
@@ -416,6 +491,9 @@ func TestProvider_IntEvaluation(t *testing.T) {
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: 5,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(5),
+				},
 			},
 		},
 		{
@@ -427,6 +505,9 @@ func TestProvider_IntEvaluation(t *testing.T) {
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: 10,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(10),
+				},
 			},
 		},
 		{
@@ -438,6 +519,9 @@ func TestProvider_IntEvaluation(t *testing.T) {
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: 10,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(10),
+				},
 			},
 		},
 		{
@@ -448,6 +532,9 @@ func TestProvider_IntEvaluation(t *testing.T) {
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: 10,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(10),
+				},
 			},
 		},
 	}
@@ -521,6 +608,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: 1,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(1),
+				},
 			},
 		},
 		{
@@ -532,6 +622,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: 1,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(1),
+				},
 			},
 		},
 		{
@@ -543,6 +636,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: 1,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(1),
+				},
 			},
 		},
 		{
@@ -554,6 +650,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: 1,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(1),
+				},
 			},
 		},
 
@@ -567,6 +666,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: -1,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(-1),
+				},
 			},
 		},
 		{
@@ -578,6 +680,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: -1,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(-1),
+				},
 			},
 		},
 		{
@@ -589,6 +694,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: -1,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(-1),
+				},
 			},
 		},
 		{
@@ -600,6 +708,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: -1,
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(-1),
+				},
 			},
 		},
 
@@ -613,6 +724,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: -1, // default
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(-1),
+				},
 			},
 		},
 		{
@@ -624,6 +738,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: -1, // default
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(-1),
+				},
 			},
 		},
 		{
@@ -635,6 +752,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: -1, // default
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(-1),
+				},
 			},
 		},
 		{
@@ -646,6 +766,9 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 			},
 			want: openfeature.IntResolutionDetail{
 				Value: -1, // default
+				ResolutionDetail: openfeature.ResolutionDetail{
+					Value: int64(-1),
+				},
 			},
 		},
 	}

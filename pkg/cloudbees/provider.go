@@ -33,29 +33,45 @@ func (p Provider) Metadata() openfeature.Metadata {
 
 // BooleanEvaluation returns a boolean flag.
 func (p Provider) BooleanEvaluation(flag string, defaultValue bool, evalCtx map[string]interface{}) openfeature.BoolResolutionDetail {
+	value := p.rox.DynamicAPI().IsEnabled(flag, defaultValue, context.NewContext(evalCtx))
 	return openfeature.BoolResolutionDetail{
-		Value: p.rox.DynamicAPI().IsEnabled(flag, defaultValue, context.NewContext(evalCtx)),
+		Value: value,
+		ResolutionDetail: openfeature.ResolutionDetail{
+			Value: value,
+		},
 	}
 }
 
 // StringEvaluation returns a string flag.
 func (p Provider) StringEvaluation(flag string, defaultValue string, evalCtx map[string]interface{}) openfeature.StringResolutionDetail {
+	value := p.rox.DynamicAPI().Value(flag, defaultValue, []string{}, context.NewContext(evalCtx))
 	return openfeature.StringResolutionDetail{
-		Value: p.rox.DynamicAPI().Value(flag, defaultValue, []string{}, context.NewContext(evalCtx)),
+		Value: value,
+		ResolutionDetail: openfeature.ResolutionDetail{
+			Value: value,
+		},
 	}
 }
 
 // FloatEvaluation returns a float flag.
 func (p Provider) FloatEvaluation(flag string, defaultValue float64, evalCtx map[string]interface{}) openfeature.FloatResolutionDetail {
+	value := p.rox.DynamicAPI().GetDouble(flag, defaultValue, []float64{}, context.NewContext(evalCtx))
 	return openfeature.FloatResolutionDetail{
-		Value: p.rox.DynamicAPI().GetDouble(flag, defaultValue, []float64{}, context.NewContext(evalCtx)),
+		Value: value,
+		ResolutionDetail: openfeature.ResolutionDetail{
+			Value: value,
+		},
 	}
 }
 
 // IntEvaluation returns an int flag.
 func (p Provider) IntEvaluation(flag string, defaultValue int64, evalCtx map[string]interface{}) openfeature.IntResolutionDetail {
+	value := int64(p.rox.DynamicAPI().GetInt(flag, int(defaultValue), []int{}, context.NewContext(evalCtx)))
 	return openfeature.IntResolutionDetail{
-		Value: int64(p.rox.DynamicAPI().GetInt(flag, int(defaultValue), []int{}, context.NewContext(evalCtx))),
+		Value: value,
+		ResolutionDetail: openfeature.ResolutionDetail{
+			Value: value,
+		},
 	}
 }
 
