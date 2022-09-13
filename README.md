@@ -36,12 +36,13 @@ package main
 
 import (
 	"github.com/open-feature/golang-sdk/pkg/openfeature"
-	"github.com/rollout/cloudbees-openfeature-provider-go/cloudbees"
+	"github.com/rollout/cloudbees-openfeature-provider-go/pkg/cloudbees"
 )
 
 func main() {
 	appKey := "INSERT_APP_KEY_HERE"
-	openfeature.SetProvider(cloudbees.NewProvider(appKey))
+	provider, err := cloudbees.NewProvider(appKey)
+	openfeature.SetProvider(provider)
 	client := openfeature.NewClient("app")
 	value, err := client.BooleanValue("v2_enabled", false, openfeature.EvaluationContext{}, openfeature.EvaluationOptions{})
 }
