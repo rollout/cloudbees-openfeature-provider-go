@@ -12,10 +12,12 @@ type Provider struct {
 	rox *server.Rox
 }
 
+// NewProvider creates a new Provider with the specified appKey
 func NewProvider(appKey string) (*Provider, error) {
 	return NewProviderWithOptions(appKey, server.NewRoxOptions(server.RoxOptionsBuilder{}))
 }
 
+// NewProviderWithOptions creates a new Provider specified appKey and RoxOption
 func NewProviderWithOptions(appKey string, options model.RoxOptions) (*Provider, error) {
 	rox := server.NewRox()
 	err := <-rox.Setup(appKey, options)
