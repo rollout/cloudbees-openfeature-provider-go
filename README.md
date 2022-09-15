@@ -41,9 +41,13 @@ import (
 
 func main() {
 	appKey := "INSERT_APP_KEY_HERE"
-	provider, err := cloudbees.NewProvider(appKey)
-	openfeature.SetProvider(provider)
-	client := openfeature.NewClient("app")
-	value, err := client.BooleanValue("v2_enabled", false, openfeature.EvaluationContext{}, openfeature.EvaluationOptions{})
+	if provider, err := cloudbees.NewProvider(appKey); err == nil {
+		openfeature.SetProvider(provider)
+		client := openfeature.NewClient("app")
+		value, err := client.BooleanValue("enableTutorial", false, openfeature.EvaluationContext{}, openfeature.EvaluationOptions{})
+		fmt.Printf("flag value: %v, error: %v", value, err)
+	} else {
+		fmt.Printf("error creating client %v", err)
+	}
 }
 ```
