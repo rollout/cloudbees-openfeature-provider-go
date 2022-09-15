@@ -38,9 +38,6 @@ func (p Provider) BooleanEvaluation(flag string, defaultValue bool, evalCtx map[
 	value := p.rox.DynamicAPI().IsEnabled(flag, defaultValue, context.NewContext(evalCtx))
 	return openfeature.BoolResolutionDetail{
 		Value: value,
-		ResolutionDetail: openfeature.ResolutionDetail{
-			Value: value,
-		},
 	}
 }
 
@@ -49,9 +46,6 @@ func (p Provider) StringEvaluation(flag string, defaultValue string, evalCtx map
 	value := p.rox.DynamicAPI().Value(flag, defaultValue, []string{}, context.NewContext(evalCtx))
 	return openfeature.StringResolutionDetail{
 		Value: value,
-		ResolutionDetail: openfeature.ResolutionDetail{
-			Value: value,
-		},
 	}
 }
 
@@ -60,9 +54,6 @@ func (p Provider) FloatEvaluation(flag string, defaultValue float64, evalCtx map
 	value := p.rox.DynamicAPI().GetDouble(flag, defaultValue, []float64{}, context.NewContext(evalCtx))
 	return openfeature.FloatResolutionDetail{
 		Value: value,
-		ResolutionDetail: openfeature.ResolutionDetail{
-			Value: value,
-		},
 	}
 }
 
@@ -71,18 +62,17 @@ func (p Provider) IntEvaluation(flag string, defaultValue int64, evalCtx map[str
 	value := int64(p.rox.DynamicAPI().GetInt(flag, int(defaultValue), []int{}, context.NewContext(evalCtx)))
 	return openfeature.IntResolutionDetail{
 		Value: value,
-		ResolutionDetail: openfeature.ResolutionDetail{
-			Value: value,
-		},
 	}
 }
 
 // ObjectEvaluation returns an object flag
-func (p Provider) ObjectEvaluation(_ string, defaultValue interface{}, _ map[string]interface{}) openfeature.ResolutionDetail {
-	return openfeature.ResolutionDetail{
-		Value:     defaultValue,
-		ErrorCode: "Not implemented - CloudBees feature management does not support an object type. Only String, Number and Boolean",
-		Reason:    openfeature.ERROR,
+func (p Provider) ObjectEvaluation(_ string, defaultValue interface{}, _ map[string]interface{}) openfeature.InterfaceResolutionDetail {
+	return openfeature.InterfaceResolutionDetail{
+		Value: defaultValue,
+		ResolutionDetail: openfeature.ResolutionDetail{
+			ErrorCode: "Not implemented - CloudBees feature management does not support an object type. Only String, Number and Boolean",
+			Reason:    openfeature.ERROR,
+		},
 	}
 }
 

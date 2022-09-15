@@ -23,8 +23,8 @@ github.com/magiconair/properties v1.8.4 h1:8KGKTcQQGm0Kv7vEbKFErAoAOFyyacLStRtQS
 github.com/magiconair/properties v1.8.4/go.mod h1:y3VJvCyxH9uVvJTWEGAELF3aiYNyPKd5NZ3oSwXrF60=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e h1:fD57ERR4JtEqsWbfPhv4DMiApHyliiK5xCTNVSPiaAs=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
-github.com/open-feature/golang-sdk v0.2.0 h1:w6KYa75pp+ZZp+wpMWBNQhGtwyHt7TKTF/wLycEdclk=
-github.com/open-feature/golang-sdk v0.2.0/go.mod h1:AcHh6hParWb2KPnkLUII0a060E6byMdW/YSGvfeHiVQ=
+github.com/open-feature/golang-sdk v0.3.0 h1:uyd18UVj8qaORXdFl6f2ZABAoeszMidousUA5vUHdIo=
+github.com/open-feature/golang-sdk v0.3.0/go.mod h1:AcHh6hParWb2KPnkLUII0a060E6byMdW/YSGvfeHiVQ=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
