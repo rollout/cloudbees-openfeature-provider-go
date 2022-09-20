@@ -2,7 +2,7 @@ package cloudbees_test
 
 import (
 	"errors"
-	"github.com/open-feature/golang-sdk/pkg/openfeature"
+	"github.com/open-feature/go-sdk/pkg/openfeature"
 	"github.com/rollout/cloudbees-openfeature-provider-go/pkg/cloudbees"
 	"reflect"
 	"testing"

@@ -1,7 +1,7 @@
 package cloudbees
 
 import (
-	"github.com/open-feature/golang-sdk/pkg/openfeature"
+	"github.com/open-feature/go-sdk/pkg/openfeature"
 	"github.com/rollout/rox-go/v5/core/context"
 	"github.com/rollout/rox-go/v5/core/model"
 	"github.com/rollout/rox-go/v5/server"
