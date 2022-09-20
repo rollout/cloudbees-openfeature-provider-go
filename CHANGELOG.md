@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.0](https://github.com/rollout/cloudbees-openfeature-provider-go/compare/v0.1.0...v0.2.0) (2022-09-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* OpenFeature SDK renamed from golang to go
+
+### Miscellaneous Chores
+
+* OpenFeature SDK renamed from golang to go ([2a91d78](https://github.com/rollout/cloudbees-openfeature-provider-go/commit/2a91d780a1323995fad0fb1750cc013cd46f6bfd))
+
 ## [0.1.0](https://github.com/rollout/cloudbees-openfeature-provider-go/compare/v0.0.2...v0.1.0) (2022-09-15)
 
 
