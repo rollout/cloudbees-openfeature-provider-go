@@ -3,7 +3,7 @@ module github.com/rollout/cloudbees-openfeature-provider-go
 go 1.17
 
 require (
-	github.com/open-feature/go-sdk v0.4.0
+	github.com/open-feature/go-sdk v0.6.0
 	github.com/rollout/rox-go/v5 v5.0.2
 )
 

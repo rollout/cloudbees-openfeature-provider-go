@@ -69,9 +69,8 @@ func (p Provider) IntEvaluation(flag string, defaultValue int64, evalCtx map[str
 func (p Provider) ObjectEvaluation(_ string, defaultValue interface{}, _ map[string]interface{}) openfeature.InterfaceResolutionDetail {
 	return openfeature.InterfaceResolutionDetail{
 		Value: defaultValue,
-		ResolutionDetail: openfeature.ResolutionDetail{
-			ErrorCode: "Not implemented - CloudBees feature management does not support an object type. Only String, Number and Boolean",
-			Reason:    openfeature.ERROR,
+		ProviderResolutionDetail: openfeature.ProviderResolutionDetail{
+			ResolutionError: openfeature.NewInvalidContextResolutionError("Not implemented - CloudBees feature management does not support an object type. Only String, Number and Boolean"),
 		},
 	}
 }

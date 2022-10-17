@@ -482,9 +482,8 @@ func TestProvider_ObjectEvaluation(t *testing.T) {
 			},
 			want: openfeature.InterfaceResolutionDetail{
 				Value: "default",
-				ResolutionDetail: openfeature.ResolutionDetail{
-					ErrorCode: "Not implemented - CloudBees feature management does not support an object type. Only String, Number and Boolean",
-					Reason:    openfeature.ERROR,
+				ProviderResolutionDetail: openfeature.ProviderResolutionDetail{
+					ResolutionError: openfeature.NewInvalidContextResolutionError("Not implemented - CloudBees feature management does not support an object type. Only String, Number and Boolean"),
 				},
 			},
 		},
