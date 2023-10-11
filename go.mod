@@ -14,6 +14,6 @@ require (
 	github.com/rollout/sse v0.0.0-20181105093643-e422b54b3b28 // indirect
 	github.com/satori/go.uuid v1.2.1-0.20180103174451-36e9d2ebbde5 // indirect
 	golang.org/x/exp v0.0.0-20231006140011-7918f672742d // indirect
-	golang.org/x/net v0.16.0 // indirect
+	golang.org/x/net v0.17.0 // indirect
 	gopkg.in/cenkalti/backoff.v1 v1.1.0 // indirect
 )
