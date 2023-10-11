@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
     - name: build
-      image: golang:1.17.13
+      image: golang:1.18.10
       command: ["cat"]
       tty: true
