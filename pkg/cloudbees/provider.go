@@ -1,11 +1,15 @@
 package cloudbees
 
 import (
+	"context"
+
 	"github.com/open-feature/go-sdk/pkg/openfeature"
-	"github.com/rollout/rox-go/v5/core/context"
+	roxcontext "github.com/rollout/rox-go/v5/core/context"
 	"github.com/rollout/rox-go/v5/core/model"
 	"github.com/rollout/rox-go/v5/server"
 )
+
+const providerName = "CloudbeesProvider"
 
 // Provider implements the FeatureProvider interface and provides functions for evaluating flags using CloudBees Feature Management
 type Provider struct {
@@ -30,43 +34,43 @@ func NewProviderWithOptions(appKey string, options model.RoxOptions) (*Provider,
 }
 
 func (p Provider) Metadata() openfeature.Metadata {
-	return openfeature.Metadata{Name: "CloudbeesProvider"}
+	return openfeature.Metadata{Name: providerName}
 }
 
 // BooleanEvaluation returns a boolean flag.
-func (p Provider) BooleanEvaluation(flag string, defaultValue bool, evalCtx map[string]interface{}) openfeature.BoolResolutionDetail {
-	value := p.rox.DynamicAPI().IsEnabled(flag, defaultValue, context.NewContext(evalCtx))
+func (p Provider) BooleanEvaluation(_ context.Context, flag string, defaultValue bool, evalCtx openfeature.FlattenedContext) openfeature.BoolResolutionDetail {
+	value := p.rox.DynamicAPI().IsEnabled(flag, defaultValue, roxcontext.NewContext(evalCtx))
 	return openfeature.BoolResolutionDetail{
 		Value: value,
 	}
 }
 
 // StringEvaluation returns a string flag.
-func (p Provider) StringEvaluation(flag string, defaultValue string, evalCtx map[string]interface{}) openfeature.StringResolutionDetail {
-	value := p.rox.DynamicAPI().Value(flag, defaultValue, []string{}, context.NewContext(evalCtx))
+func (p Provider) StringEvaluation(_ context.Context, flag string, defaultValue string, evalCtx openfeature.FlattenedContext) openfeature.StringResolutionDetail {
+	value := p.rox.DynamicAPI().Value(flag, defaultValue, []string{}, roxcontext.NewContext(evalCtx))
 	return openfeature.StringResolutionDetail{
 		Value: value,
 	}
 }
 
 // FloatEvaluation returns a float flag.
-func (p Provider) FloatEvaluation(flag string, defaultValue float64, evalCtx map[string]interface{}) openfeature.FloatResolutionDetail {
-	value := p.rox.DynamicAPI().GetDouble(flag, defaultValue, []float64{}, context.NewContext(evalCtx))
+func (p Provider) FloatEvaluation(_ context.Context, flag string, defaultValue float64, evalCtx openfeature.FlattenedContext) openfeature.FloatResolutionDetail {
+	value := p.rox.DynamicAPI().GetDouble(flag, defaultValue, []float64{}, roxcontext.NewContext(evalCtx))
 	return openfeature.FloatResolutionDetail{
 		Value: value,
 	}
 }
 
 // IntEvaluation returns an int flag.
-func (p Provider) IntEvaluation(flag string, defaultValue int64, evalCtx map[string]interface{}) openfeature.IntResolutionDetail {
-	value := int64(p.rox.DynamicAPI().GetInt(flag, int(defaultValue), []int{}, context.NewContext(evalCtx)))
+func (p Provider) IntEvaluation(_ context.Context, flag string, defaultValue int64, evalCtx openfeature.FlattenedContext) openfeature.IntResolutionDetail {
+	value := int64(p.rox.DynamicAPI().GetInt(flag, int(defaultValue), []int{}, roxcontext.NewContext(evalCtx)))
 	return openfeature.IntResolutionDetail{
 		Value: value,
 	}
 }
 
 // ObjectEvaluation returns an object flag
-func (p Provider) ObjectEvaluation(_ string, defaultValue interface{}, _ map[string]interface{}) openfeature.InterfaceResolutionDetail {
+func (p Provider) ObjectEvaluation(_ context.Context, _ string, defaultValue interface{}, _ openfeature.FlattenedContext) openfeature.InterfaceResolutionDetail {
 	return openfeature.InterfaceResolutionDetail{
 		Value: defaultValue,
 		ProviderResolutionDetail: openfeature.ProviderResolutionDetail{
