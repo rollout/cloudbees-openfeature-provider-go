@@ -31,6 +31,9 @@ You can configure the CloudBees provider by doing the following:
 package main
 
 import (
+	"context"
+	"fmt"
+
 	"github.com/open-feature/go-sdk/pkg/openfeature"
 	"github.com/rollout/cloudbees-openfeature-provider-go/pkg/cloudbees"
 )
@@ -40,7 +43,7 @@ func main() {
 	if provider, err := cloudbees.NewProvider(appKey); err == nil {
 		openfeature.SetProvider(provider)
 		client := openfeature.NewClient("app")
-		value, err := client.BooleanValue("enableTutorial", false, openfeature.EvaluationContext{}, openfeature.EvaluationOptions{})
+		value, err := client.BooleanValue(context.Background(), "enableTutorial", false, openfeature.EvaluationContext{})
 		fmt.Printf("flag value: %v, error: %v", value, err)
 	} else {
 		fmt.Printf("error creating client %v", err)
