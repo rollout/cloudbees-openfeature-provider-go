@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/rollout/cloudbees-openfeature-provider-go/compare/v1.0.0...v1.8.0) (2023-10-12)
+
+
+### Features
+
+* Upgrade to OpenFeature SDK 1.8.0 ([4178bb4](https://github.com/rollout/cloudbees-openfeature-provider-go/commit/4178bb4c8c435d7bab97c875c0d573d3ca611705))
+
 ## [1.0.0](https://github.com/rollout/cloudbees-openfeature-provider-go/compare/v0.6.0...v1.0.0) (2022-10-20)
 
 
