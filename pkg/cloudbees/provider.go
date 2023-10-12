@@ -9,7 +9,7 @@ import (
 	"github.com/rollout/rox-go/v5/server"
 )
 
-const providerName = "CloudbeesProvider"
+const providerName = "CloudBeesProvider"
 
 // Provider implements the FeatureProvider interface and provides functions for evaluating flags using CloudBees Feature Management
 type Provider struct {

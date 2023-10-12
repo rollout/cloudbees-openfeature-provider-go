@@ -20,8 +20,8 @@ func TestProvider_Metadata(t *testing.T) {
 	tests := map[string]struct {
 		want openfeature.Metadata
 	}{
-		"Given a CloudBees provider, then Metadata() will return CloudbeesProvider": {
-			want: openfeature.Metadata{Name: "CloudbeesProvider"},
+		"Given a CloudBees provider, then Metadata() will return CloudBeesProvider": {
+			want: openfeature.Metadata{Name: "CloudBeesProvider"},
 		},
 	}
 	p, _ := cloudbees.NewProvider(dashboardAppKey)
