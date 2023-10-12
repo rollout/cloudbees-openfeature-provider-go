@@ -684,3 +684,10 @@ func TestProvider_Hooks(t *testing.T) {
 		})
 	}
 }
+
+func TestProvider_IsFeatureProvider(t *testing.T) {
+	_, ok := interface{}(cloudbees.Provider{}).(openfeature.FeatureProvider)
+	if !ok {
+		t.Error("Provider does not implement FeatureProvider interface")
+	}
+}
