@@ -1,11 +1,13 @@
 package cloudbees_test
 
 import (
+	"context"
 	"errors"
-	"github.com/open-feature/go-sdk/pkg/openfeature"
-	"github.com/rollout/cloudbees-openfeature-provider-go/pkg/cloudbees"
 	"reflect"
 	"testing"
+
+	"github.com/open-feature/go-sdk/pkg/openfeature"
+	"github.com/rollout/cloudbees-openfeature-provider-go/pkg/cloudbees"
 )
 
 const dashboardAppKey = "62bee5bbca1059d18808adad"
@@ -18,8 +20,8 @@ func TestProvider_Metadata(t *testing.T) {
 	tests := map[string]struct {
 		want openfeature.Metadata
 	}{
-		"Given a CloudBees provider, then Metadata() will return CloudbeesProvider": {
-			want: openfeature.Metadata{Name: "CloudbeesProvider"},
+		"Given a CloudBees provider, then Metadata() will return CloudBeesProvider": {
+			want: openfeature.Metadata{Name: "CloudBeesProvider"},
 		},
 	}
 	p, _ := cloudbees.NewProvider(dashboardAppKey)
@@ -139,7 +141,7 @@ func TestProvider_BooleanEvaluation(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := provider.BooleanEvaluation(tt.args.flag, tt.args.defaultValue, tt.args.evalCtx); !reflect.DeepEqual(got, tt.want) {
+			if got := provider.BooleanEvaluation(context.Background(), tt.args.flag, tt.args.defaultValue, tt.args.evalCtx); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("name: %v; BooleanEvaluation() = %v, want %v", tt.name, got, tt.want)
 			}
 		})
@@ -259,7 +261,7 @@ func TestProvider_StringEvaluation(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := provider.StringEvaluation(tt.args.flag, tt.args.defaultValue, tt.args.evalCtx); !reflect.DeepEqual(got, tt.want) {
+			if got := provider.StringEvaluation(context.Background(), tt.args.flag, tt.args.defaultValue, tt.args.evalCtx); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("name: %v; BooleanEvaluation() = %v, want %v", tt.name, got, tt.want)
 			}
 		})
@@ -358,7 +360,7 @@ func TestProvider_FloatEvaluation(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := provider.FloatEvaluation(tt.args.flag, tt.args.defaultValue, tt.args.evalCtx); !reflect.DeepEqual(got, tt.want) {
+			if got := provider.FloatEvaluation(context.Background(), tt.args.flag, tt.args.defaultValue, tt.args.evalCtx); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("name: %v; BooleanEvaluation() = %v, want %v", tt.name, got, tt.want)
 			}
 		})
@@ -457,7 +459,7 @@ func TestProvider_IntEvaluation(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := provider.IntEvaluation(tt.args.flag, tt.args.defaultValue, tt.args.evalCtx); !reflect.DeepEqual(got, tt.want) {
+			if got := provider.IntEvaluation(context.Background(), tt.args.flag, tt.args.defaultValue, tt.args.evalCtx); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("name: %v; BooleanEvaluation() = %v, want %v", tt.name, got, tt.want)
 			}
 		})
@@ -494,7 +496,7 @@ func TestProvider_ObjectEvaluation(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := provider.ObjectEvaluation(tt.args.flag, tt.args.defaultValue, nil); !reflect.DeepEqual(got, tt.want) {
+			if got := provider.ObjectEvaluation(context.Background(), tt.args.flag, tt.args.defaultValue, nil); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("name: %v; BooleanEvaluation() = %v, want %v", tt.name, got, tt.want)
 			}
 		})
@@ -656,9 +658,36 @@ func TestProvider_IntEvaluation_WithDifferentlyTypedContextObjects(t *testing.T)
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := provider.IntEvaluation(tt.args.flag, tt.args.defaultValue, tt.args.evalCtx); !reflect.DeepEqual(got, tt.want) {
+			if got := provider.IntEvaluation(context.Background(), tt.args.flag, tt.args.defaultValue, tt.args.evalCtx); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("name: %v; BooleanEvaluation() = %v, want %v", tt.name, got, tt.want)
 			}
 		})
+	}
+}
+
+func TestProvider_Hooks(t *testing.T) {
+	tests := []struct {
+		name string
+		want []openfeature.Hook
+	}{
+		{
+			name: "Empty hooks",
+			want: []openfeature.Hook{},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			p := cloudbees.Provider{}
+			if got := p.Hooks(); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("Hooks() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestProvider_IsFeatureProvider(t *testing.T) {
+	_, ok := interface{}(cloudbees.Provider{}).(openfeature.FeatureProvider)
+	if !ok {
+		t.Error("Provider does not implement FeatureProvider interface")
 	}
 }
